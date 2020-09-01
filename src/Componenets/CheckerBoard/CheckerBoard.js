@@ -186,11 +186,12 @@ class CheckerBoard extends Component {
             let space = document.getElementById(this.state.checkers[i].currentLocation)
             let checker = document.createElement("button")
 
-            checker.value = `${this.state.checkers[i].currentLocation},${this.state.checkers[i].isKing},${this.state.checkers[i].className}`
-
+            
             checker.classList.add(this.state.checkers[i].className)
+            
+            checker.id = `${this.state.checkers[i].id}`
 
-            checker.id = `${this.state.checkers[i].currentLocation} btn`
+            checker.value = `${this.state.checkers[i].currentLocation},${this.state.checkers[i].isKing},${this.state.checkers[i].className},${checker.id}`
 
             if(this.state.checkers[i].isKing) {
                 let king = document.createElement("img")
@@ -208,6 +209,7 @@ class CheckerBoard extends Component {
 
     canCheckerMove = (e) => {
         let checkerInfo = e.target.value.split(",")
+        let checkerId = checkerInfo[3]
         let currentLocation = checkerInfo[0]
         let checkerType = checkerInfo[2]
         let locationInfo = currentLocation.split("_")
@@ -234,6 +236,8 @@ class CheckerBoard extends Component {
         let killChecker
 
         let spacesMoved
+
+        let canMove = false
 
         if(locationNumber === "1" && locationLetter === "a") {
             adjacentDown = document.getElementById(`${locationLetter}_${Number(locationNumber) + 1}`)
@@ -683,7 +687,7 @@ class CheckerBoard extends Component {
             let moveDownRight
             let moveDownLeft
 
-            if(checkerType === "black_decker") {
+            if(checkerType === "black_checker") {
                 if(adjacentDown.children.length >= 1) {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
@@ -1754,7 +1758,41 @@ class CheckerBoard extends Component {
                 downLeft: moveDownLeft
             }
         }
-        console.log(moves)
+
+        let possibleMoves = []
+        
+        for(const property in moves) {
+            if(moves[property] === true) {
+                canMove = true
+                possibleMoves.push(property)
+            }
+        }
+
+        if(canMove === true) {
+            let reducer = (total, current) => `${total} ` + `${current} `
+            let promptMessage = possibleMoves.reduce(reducer, "You can move ")
+
+            let move = prompt(promptMessage, possibleMoves[0])
+            if(possibleMoves.includes(move)) {
+                if(move === "up" && spacesMoved === 1) {
+                    let currentPlace = document.getElementById(checkerId)
+                    currentPlace.remove()
+
+                    let currentChecker = this.state.checkers.find(checker => checker.id === Number(checkerId))
+                    console.log(currentChecker)
+
+                    let newChecker = document.createElement("button")
+                }
+            }
+            else {
+                alert("Invalid move name")
+                return
+            }
+        }
+        else {
+            alert("This checker cannot move")
+            return
+        }
     }
 
     render() {
