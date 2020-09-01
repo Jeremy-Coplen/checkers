@@ -10,340 +10,172 @@ class CheckerBoard extends Component {
         this.state = {
             checkers: [
                 {
+                    id: 1,
                     className: "black_checker",
                     currentLocation: "a_2",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 2,
                     className: "black_checker",
                     currentLocation: "b_1",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 3,
                     className: "black_checker",
                     currentLocation: "b_3",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 4,
                     className: "black_checker",
                     currentLocation: "c_2",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 5,
                     className: "black_checker",
                     currentLocation: "d_1",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 6,
                     className: "black_checker",
                     currentLocation: "d_3",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 7,
                     className: "black_checker",
                     currentLocation: "e_2",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 8,
                     className: "black_checker",
                     currentLocation: "f_1",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 9,
                     className: "black_checker",
                     currentLocation: "f_3",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 10,
                     className: "black_checker",
                     currentLocation: "g_2",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 11,
                     className: "black_checker",
                     currentLocation: "h_1",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 12,
                     className: "black_checker",
                     currentLocation: "h_3",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 13,
                     className: "red_checker",
                     currentLocation: "a_6",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 14,
                     className: "red_checker",
                     currentLocation: "a_8",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 15,
                     className: "red_checker",
                     currentLocation: "b_7",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 16,
                     className: "red_checker",
                     currentLocation: "c_6",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 17,
                     className: "red_checker",
                     currentLocation: "c_8",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 18,
                     className: "red_checker",
                     currentLocation: "d_7",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 19,
                     className: "red_checker",
                     currentLocation: "e_6",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 20,
                     className: "red_checker",
                     currentLocation: "e_8",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 21,
                     className: "red_checker",
                     currentLocation: "f_7",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 22,
                     className: "red_checker",
                     currentLocation: "g_6",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 23,
                     className: "red_checker",
                     currentLocation: "g_8",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 },
                 {
+                    id: 24,
                     className: "red_checker",
                     currentLocation: "h_7",
                     status: "alive",
-                    isKing: false,
-                    possibleMoves: [
-                        { up: true },
-                        { upRight: false },
-                        { downRight: false},
-                        { upLeft: false},
-                        { downLeft: false },
-                        { down: false}
-                    ]
+                    isKing: false
                 }
             ]
         }
@@ -368,13 +200,13 @@ class CheckerBoard extends Component {
                 checker.appendChild(king)
             }
 
-            checker.addEventListener("click", this.moveChecker)
+            checker.addEventListener("click", this.canCheckerMove)
 
             space.appendChild(checker)
         }
     }
 
-    moveChecker = (e) => {
+    canCheckerMove = (e) => {
         let checkerInfo = e.target.value.split(",")
         let currentLocation = checkerInfo[0]
         let checkerType = checkerInfo[2]
@@ -397,7 +229,7 @@ class CheckerBoard extends Component {
         let aDiaDownLeft
         let aaDown
 
-        let moves = []
+        let moves = {}
 
         let killChecker
 
@@ -409,19 +241,108 @@ class CheckerBoard extends Component {
             aaDown = document.getElementById(`${locationLetter}_${Number(locationNumber) + 2}`)
             aDiaDownRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) + 2}`)
 
+            let moveDown
+            let moveDownRight
+
             if(checkerType === "black_decker") {
                 if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "red_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
 
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "red_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
                 }
             }
-            moves = [
-                { up: false},
-                { upRight: false },
-                { downRight: false } ,
-                { upLeft: false },
-                { downLeft: false },
-                { down: false }
-            ]
+            else {
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "black_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "black_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                down: moveDown,
+                downRight: moveDownRight
+            }
         }
         else if(locationNumber === "1" && locationLetter === "h") {
             adjacentDown = document.getElementById(`${locationLetter}_${Number(locationNumber) + 1}`)
@@ -457,7 +378,7 @@ class CheckerBoard extends Component {
                 }
 
                 if(diaDownLeft.children.length >= 1) {
-                    if(adjacentDown.children.item(0).className === "red_checker") {
+                    if(diaDownLeft.children.item(0).className === "red_checker") {
                         if(aDiaDownLeft.children.length >=1) {
                             moveDownLeft = false
                             killChecker = false
@@ -527,14 +448,10 @@ class CheckerBoard extends Component {
                 }
             }
 
-            moves = [
-                { up: false},
-                { upRight: false },
-                { downRight: false } ,
-                { upLeft: false },
-                { downLeft: moveDownLeft },
-                { down: moveDown }
-            ]
+            moves = {
+                down: moveDown,
+                donwLeft: moveDownLeft
+            }
         }
         else if(locationNumber === "8" && locationLetter === "a") {
             adjacentUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 1}`)
@@ -542,13 +459,217 @@ class CheckerBoard extends Component {
             aaUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 2}`)
             aDiaUpRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) - 2}`)
 
-            console.log(adjacentUp.children.length)
-            console.log(diaUpRight.children.item(0).className)
+            let moveUp
+            let moveUpRight
+
+            if(checkerType === "black_checker") {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "red_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "red_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+            else {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0) === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "black_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                upRight: moveUpRight
+            }
         }
         else if(locationNumber === "8" && locationLetter === "h") {
             adjacentUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 1}`)
             diaUpLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 1)}_${Number(locationNumber) - 1}`)
             aaUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 2}`)
+            aDiaUpLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) - 2}`)
+
+            let moveUp
+            let moveUpLeft
+
+            if(checkerType === "black_checker") {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "red_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 1
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "red_checker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+            else {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "black_decker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                upLeft: moveUpLeft
+            }
         }
         else if(locationNumber === "1") {
             adjacentDown = document.getElementById(`${locationLetter}_${Number(locationNumber) + 1}`)
@@ -558,17 +679,156 @@ class CheckerBoard extends Component {
             aDiaDownRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) + 2}`)
             aDiaDownLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) + 2}`)
 
+            let moveDown
+            let moveDownRight
+            let moveDownLeft
+
             if(checkerType === "black_decker") {
-                
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "red_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "red_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownLeft.children.length >= 1) {
+                    if(diaDownLeft.children.item(0).className === "red_checker") {
+                        if(aDiaDownLeft.children.length >= 1) {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
             }
-            moves = [
-                { up: false},
-                { upRight: false },
-                { downRight: true } ,
-                { upLeft: false },
-                { downLeft: true },
-                { down: true }
-            ]
+            else {
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "black_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "black_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownLeft.children.length >= 1) {
+                    if(diaDownLeft.children.item(0).className === "black_checker") {
+                        if(aDiaDownLeft.children.length >= 1) {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                down: moveDown,
+                downRight: moveDownRight,
+                downLeft: moveDownLeft
+            }
         }
         else if(locationNumber === "8") {
             adjacentUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 1}`)
@@ -578,14 +838,156 @@ class CheckerBoard extends Component {
             aDiaUpRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) - 2}`)
             aDiaUpLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) - 2}`)
 
-            moves = [
-                { up: true},
-                { upRight: true },
-                { downRight: false } ,
-                { upLeft: true },
-                { downLeft: false },
-                { down: false }
-            ]
+            let moveUp
+            let moveUpRight
+            let moveUpLeft
+
+            if(checkerType === "black_checker") {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "red_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "red_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "red_checker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+            else {
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "black_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "black_checker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                upRight: moveUpRight,
+                upLeft: moveUpLeft
+            }
         }
         else if(locationLetter === "a") {
             adjacentUp = document.getElementById(`${locationLetter}_${Number(locationNumber) - 1}`)
@@ -597,37 +999,215 @@ class CheckerBoard extends Component {
             aDiaUpRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) - 2}`)
             aDiaDownRight = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) + 2)}_${Number(locationNumber) + 2}`)
 
-            if(isKing === "true") {
-                moves = [
-                    { up: true},
-                    { upRight: true },
-                    { downRight: true } ,
-                    { upLeft: false },
-                    { downLeft: false },
-                    { down: true }
-                ]
-            }
-            else {
-                if(checkerType === "black_checker") {
-                    moves = [
-                        { up: false},
-                        { upRight: false },
-                        { downRight: true } ,
-                        { upLeft: false },
-                        { downLeft: false },
-                        { down: true }
-                    ]
+            let moveUp
+            let moveDown
+            let moveUpRight
+            let moveDownRight
+
+            if(checkerType === "black_checker") {
+                if(isKing === "true") {
+                    if(adjacentUp.children.length >= 1) {
+                        if(adjacentUp.children.item(0).className === "red_checker") {
+                            if(aaUp.children.length >= 1) {
+                                moveUp = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUp = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUp = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUp = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaUpRight.children.length >= 1) {
+                        if(diaUpRight.children.item(0).className === "red_checker") {
+                            if(aDiaUpRight.children.length >= 1) {
+                                moveUpRight = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUpRight = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUpRight = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
                 }
                 else {
-                    moves = [
-                        { up: true},
-                        { upRight: true },
-                        { downRight: false } ,
-                        { upLeft: false },
-                        { downLeft: false },
-                        { down: false }
-                    ]
+                    moveUp = false
+                    moveUpRight = false
                 }
+
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "red_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "red_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+            else {
+                if(isKing === "true") {
+                    if(adjacentDown.children.length >= 1) {
+                        if(adjacentDown.children.item(0).className === "black_checker") {
+                            if(aaDown.children.length >= 1) {
+                                moveDown = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDown = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDown = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDown = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaDownRight.children.length >= 1) {
+                        if(diaDownRight.children.item(0).className === "black_checker") {
+                            if(aDiaDownRight.children.length >= 1) {
+                                moveDownRight = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDownRight = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDownRight = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+                }
+                else {
+                    moveDown = false
+                    moveDownRight = false
+                }
+
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "black_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                down: moveDown,
+                upRight: moveUpRight,
+                downRight: moveDownRight
             }
         }
         else if (locationLetter === "h") {
@@ -640,37 +1220,215 @@ class CheckerBoard extends Component {
             aDiaUpLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) - 2}`)
             aDiaDownLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 1)}_${Number(locationNumber) + 2}`)
 
-            if(isKing === "true") {
-                moves = [
-                    { up: true},
-                    { upRight: false },
-                    { downRight: false } ,
-                    { upLeft: true },
-                    { downLeft: true },
-                    { down: true }
-                ]
-            }
-            else {
-                if(checkerType === "black_checker") {
-                    moves = [
-                        { up: false},
-                        { upRight: false },
-                        { downRight: false } ,
-                        { upLeft: false },
-                        { downLeft: true },
-                        { down: true }
-                    ]
+            let moveUp
+            let moveDown
+            let moveUpLeft
+            let moveDownLeft
+
+            if(checkerType === "black_checker") {
+                if(isKing === "true") {
+                    if(adjacentUp.children.length >= 1) {
+                        if(adjacentUp.children.item(0).className === "red_checker") {
+                            if(aaUp.children.length >= 1) {
+                                moveUp = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUp = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUp = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUp = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaUpLeft.children.length >= 1) {
+                        if(diaUpLeft.children.item(0).className === "red_checker") {
+                            if(aDiaUpLeft.children.length >= 1) {
+                                moveUpLeft = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUpLeft = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUpLeft = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
                 }
                 else {
-                    moves = [
-                        { up: true},
-                        { upRight: false },
-                        { downRight: false } ,
-                        { upLeft: true },
-                        { downLeft: false },
-                        { down: false }
-                    ]
+                    moveUp = false
+                    moveUpLeft = false
                 }
+
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "red_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownLeft.children.length >= 1) {
+                    if(diaDownLeft.children.item(0).className === "red_checker") {
+                        if(aDiaDownLeft.children.length >= 1) {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+            else {
+                if(isKing === "true") {
+                    if(adjacentDown.children.length >= 1) {
+                        if(adjacentDown.children.item(0).className === "black_checker") {
+                            if(aaDown.children.length >= 1) {
+                                moveDown = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDown = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDown = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDown = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaDownLeft.children.length >= 1) {
+                        if(diaDownLeft.children.item(0).className === "black_checker") {
+                            if(aDiaDownLeft.children.length >= 1) {
+                                moveDownLeft = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDownLeft = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDownLeft = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+                }
+                else {
+                    moveDown = false
+                    moveDownLeft = false
+                }
+
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "black_checker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else { 
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                down: moveDown,
+                upLeft: moveUpLeft,
+                downLeft: moveDownLeft
             }
         }
         else {
@@ -687,55 +1445,316 @@ class CheckerBoard extends Component {
             aDiaUpLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) - 2}`)
             aDiaDownLeft = document.getElementById(`${String.fromCharCode(locationLetter.charCodeAt(0) - 2)}_${Number(locationNumber) + 2}`)
 
-            if(isKing === "true") {
-                moves = [
-                    { up: true},
-                    { upRight: true },
-                    { downRight: true } ,
-                    { upLeft: true },
-                    { downLeft: true },
-                    { down: true }
-                ]
-            }
-            else {
-                if(checkerType === "black_checker") {
-                    moves = [
-                        { up: false},
-                        { diaUpRight: false },
-                        { diaDownRight: true } ,
-                        { diaUpLeft: false },
-                        { diaDownLeft: true },
-                        { down: true }
-                    ]
+            let moveUp
+            let moveDown
+            let moveUpRight
+            let moveDownRight
+            let moveUpLeft
+            let moveDownLeft
+
+            if(checkerType === "black_checker") {
+                if(isKing === "true") {
+                    if(adjacentUp.children.length >= 1) {
+                        if(adjacentUp.children.item(0).className === "red_checker") {
+                            if(aaUp.children.length >= 1) {
+                                moveUp = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUp = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUp = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUp = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaUpRight.children.length >= 1) {
+                        if(diaUpRight.children.item(0).className === "red_checker") {
+                            if(aDiaUpRight.children.length >= 1) {
+                                moveUpRight = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUpRight = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUpRight = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaUpLeft.children.length >= 1) {
+                        if(diaUpLeft.children.item(0).className === "red_checker") {
+                            if(aDiaUpLeft.children.length >= 1) {
+                                moveUpLeft = false
+                                killChecker = false
+                            }
+                            else {
+                                moveUpLeft = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveUpLeft = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
                 }
                 else {
-                    moves = [
-                        { up: true},
-                        { diaUpRight: true },
-                        { diaDownRight: false } ,
-                        { diaUpLeft: true },
-                        { diaDownLeft: false },
-                        { down: false }
-                    ]
+                    moveUp = false
+                    moveUpRight = false
+                    moveUpLeft = false
+                }
+
+                if(adjacentDown.children.length >= 1) {
+                    if(adjacentDown.children.item(0).className === "red_checker") {
+                        if(aaDown.children.length >= 1) {
+                            moveDown = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDown = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDown = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDown = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownRight.children.length >= 1) {
+                    if(diaDownRight.children.item(0).className === "red_checker") {
+                        if(aDiaDownRight.children.length >= 1) {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaDownLeft.children.length >= 1) {
+                    if(diaDownLeft.children.item(0).className === "red_checker") {
+                        if(aDiaDownLeft.children.length >= 1) {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveDownLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveDownLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveDownLeft = true
+                    killChecker = false
+                    spacesMoved = 1
                 }
             }
+            else {
+                if(isKing === "true") {
+                    if(adjacentDown.children.length >= 1) {
+                        if(adjacentDown.children.item(0).className === "black_checker") {
+                            if(aaDown.children.length >= 1) {
+                                moveDown = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDown = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDown = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDown = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaDownRight.children.length >= 1) {
+                        if(diaDownRight.children.item(0).className === "black_checker") {
+                            if(aDiaDownRight.children.length > 1) {
+                                moveDownRight = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDownRight = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDownRight = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDownRight = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+
+                    if(diaDownLeft.children.length >= 1) {
+                        if(diaDownLeft.children.item(0).className === "black_checker") {
+                            if(aDiaDownLeft.children.length >= 1) {
+                                moveDownLeft = false
+                                killChecker = false
+                            }
+                            else {
+                                moveDownLeft = true
+                                killChecker = true
+                                spacesMoved = 2
+                            }
+                        }
+                        else {
+                            moveDownLeft = false
+                            killChecker = false
+                        }
+                    }
+                    else {
+                        moveDownLeft = true
+                        killChecker = false
+                        spacesMoved = 1
+                    }
+                }
+                else {
+                    moveDown = false
+                    moveDownRight = false
+                    moveDownLeft = false
+                }
+
+                if(adjacentUp.children.length >= 1) {
+                    if(adjacentUp.children.item(0).className === "black_checker") {
+                        if(aaUp.children.length >= 1) {
+                            moveUp = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUp = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUp = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUp = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpRight.children.length >= 1) {
+                    if(diaUpRight.children.item(0).className === "black_checker") {
+                        if(aDiaUpRight.children.length >= 1) {
+                            moveUpRight = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpRight = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpRight = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpRight = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+
+                if(diaUpLeft.children.length >= 1) {
+                    if(diaUpLeft.children.item(0).className === "black_checker") {
+                        if(aDiaUpLeft.children.length >= 1) {
+                            moveUpLeft = false
+                            killChecker = false
+                        }
+                        else {
+                            moveUpLeft = true
+                            killChecker = true
+                            spacesMoved = 2
+                        }
+                    }
+                    else {
+                        moveUpLeft = false
+                        killChecker = false
+                    }
+                }
+                else {
+                    moveUpLeft = true
+                    killChecker = false
+                    spacesMoved = 1
+                }
+            }
+
+            moves = {
+                up: moveUp,
+                down: moveDown,
+                upRight: moveUpRight,
+                downRight: moveDownRight,
+                upLeft: moveUpLeft,
+                downLeft: moveDownLeft
+            }
         }
-
-
-        // {
-        //     className: "red_checker",
-        //     currentLocation: "h_7",
-        //     status: "alive",
-        //     isKing: false,
-        //     possibleMoves: [
-        //         { up: true },
-        //         { diaUpRight: false },
-        //         { diaDownRight: false},
-        //         { diaUpLeft: false},
-        //         { diaDownLeft: false },
-        //         { down: false}
-        //     ]
-        // }
+        console.log(moves)
     }
 
     render() {
