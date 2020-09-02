@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 
-import crown from "../../Images/crown.jpg"
 import "./CheckerBoard.scss"
 
 class CheckerBoard extends Component {
@@ -193,15 +192,11 @@ class CheckerBoard extends Component {
 
             checker.value = `${this.state.checkers[i].currentLocation},${this.state.checkers[i].isKing},${this.state.checkers[i].className},${checker.id}`
 
-            if(this.state.checkers[i].isKing) {
-                let king = document.createElement("img")
+            checker.style.display = "flex"
 
-                king.src = crown
+            let listener = this.canCheckerMove
 
-                checker.appendChild(king)
-            }
-
-            checker.addEventListener("click", this.canCheckerMove)
+            checker.addEventListener("click", listener, true)
 
             space.appendChild(checker)
         }
@@ -233,9 +228,19 @@ class CheckerBoard extends Component {
 
         let moves = {}
 
-        let killChecker
+        let killUpChecker
+        let killDownChecker
+        let killUpRightChecker
+        let killDownRightChecker
+        let killUpLeftChecker
+        let killDownLeftChecker
 
-        let spacesMoved
+        let movedUp
+        let movedDown
+        let movedUpRight
+        let movedDownRight
+        let movedUpLeft
+        let movedDownLeft
 
         let canMove = false
 
@@ -253,46 +258,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "red_checker") {
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
             }
             else {
@@ -300,46 +305,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "black_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "black_checker") {
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
             }
 
@@ -362,46 +367,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "red_checker") {
                         if(aDiaDownLeft.children.length >=1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownLeftChecker = true
+                            movedDownLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownLeftChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownLeftChecker = false
+                    movedDownLeft = 1
                 }
             }
             else {
@@ -409,46 +414,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "black_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "black_checker") {
                         if(aDiaDownLeft.children.length >= 1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownLeftChecker = true
+                            movedDownLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownLeftChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownLeftChecker = false
+                    movedDownLeft = 1
                 }
             }
 
@@ -471,46 +476,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "red_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "red_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
             }
             else {
@@ -518,46 +523,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0) === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "black_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
             }
 
@@ -580,46 +585,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "red_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 1
+                            killUpChecker = true
+                            movedUp = 1
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "red_checker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else {
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
             else {
@@ -627,46 +632,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "black_decker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else {
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
 
@@ -692,69 +697,69 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "red_checker") {
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "red_checker") {
                         if(aDiaDownLeft.children.length >= 1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownLeftChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownLeftChecker = false
+                    movedDownLeft = 1
                 }
             }
             else {
@@ -762,69 +767,69 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "black_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "black_checker") {
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "black_checker") {
                         if(aDiaDownLeft.children.length >= 1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownLeftChecker = true
+                            movedDownLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownLeftChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownLeftChecker = false
+                    movedDownLeft = 1
                 }
             }
 
@@ -851,69 +856,69 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "red_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "red_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "red_checker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else {
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
             else {
@@ -921,69 +926,69 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "black_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "black_checker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else {
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
 
@@ -1014,46 +1019,46 @@ class CheckerBoard extends Component {
                         if(adjacentUp.children.item(0).className === "red_checker") {
                             if(aaUp.children.length >= 1) {
                                 moveUp = false
-                                killChecker = false
+                                killUpChecker = false
                             }
                             else {
                                 moveUp = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpChecker = true
+                                movedUp = 2
                             }
                         }
                         else {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                     }
                     else {
                         moveUp = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpChecker = false
+                        movedUp = 1
                     }
 
                     if(diaUpRight.children.length >= 1) {
                         if(diaUpRight.children.item(0).className === "red_checker") {
                             if(aDiaUpRight.children.length >= 1) {
                                 moveUpRight = false
-                                killChecker = false
+                                killUpRightChecker = false
                             }
                             else {
                                 moveUpRight = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpRightChecker = true
+                                movedUpRight = 2
                             }
                         }
                         else {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                     }
                     else {
                         moveUpRight = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpRightChecker = false
+                        movedUpRight = 1
                     }
                 }
                 else {
@@ -1065,46 +1070,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "red_checker") {
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
             }
             else {
@@ -1113,46 +1118,46 @@ class CheckerBoard extends Component {
                         if(adjacentDown.children.item(0).className === "black_checker") {
                             if(aaDown.children.length >= 1) {
                                 moveDown = false
-                                killChecker = false
+                                killDownChecker = false
                             }
                             else {
                                 moveDown = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownChecker = true
+                                movedDown = 2
                             }
                         }
                         else {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                     }
                     else {
                         moveDown = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownChecker = false
+                        movedDown = 1
                     }
 
                     if(diaDownRight.children.length >= 1) {
                         if(diaDownRight.children.item(0).className === "black_checker") {
                             if(aDiaDownRight.children.length >= 1) {
                                 moveDownRight = false
-                                killChecker = false
+                                killDownRightChecker = false
                             }
                             else {
                                 moveDownRight = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownRightChecker = true
+                                movedDownRight = 2
                             }
                         }
                         else {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                     }
                     else {
                         moveDownRight = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownRightChecker = false
+                        movedDownRight = 1
                     }
                 }
                 else {
@@ -1164,46 +1169,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "black_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
             }
 
@@ -1235,46 +1240,46 @@ class CheckerBoard extends Component {
                         if(adjacentUp.children.item(0).className === "red_checker") {
                             if(aaUp.children.length >= 1) {
                                 moveUp = false
-                                killChecker = false
+                                killUpChecker = false
                             }
                             else {
                                 moveUp = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpChecker = true
+                                movedUp = 2
                             }
                         }
                         else {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                     }
                     else {
                         moveUp = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpChecker = false
+                        movedUp = 1
                     }
 
                     if(diaUpLeft.children.length >= 1) {
                         if(diaUpLeft.children.item(0).className === "red_checker") {
                             if(aDiaUpLeft.children.length >= 1) {
                                 moveUpLeft = false
-                                killChecker = false
+                                killUpLeftChecker = false
                             }
                             else {
                                 moveUpLeft = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpLeftChecker = true
+                                movedUpLeft = 2
                             }
                         }
                         else {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                     }
                     else {
                         moveUpLeft = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpLeftChecker = false
+                        movedUpLeft = 1
                     }
                 }
                 else {
@@ -1286,46 +1291,46 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "red_checker") {
                         if(aDiaDownLeft.children.length >= 1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownLeftChecker = true
+                            movedDownLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownLeftChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownLeftChecker = false
+                    movedDownLeft = 1
                 }
             }
             else {
@@ -1334,46 +1339,46 @@ class CheckerBoard extends Component {
                         if(adjacentDown.children.item(0).className === "black_checker") {
                             if(aaDown.children.length >= 1) {
                                 moveDown = false
-                                killChecker = false
+                                killDownChecker = false
                             }
                             else {
                                 moveDown = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownChecker = true
+                                movedDown = 2
                             }
                         }
                         else {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                     }
                     else {
                         moveDown = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownChecker = false
+                        movedDown = 1
                     }
 
                     if(diaDownLeft.children.length >= 1) {
                         if(diaDownLeft.children.item(0).className === "black_checker") {
                             if(aDiaDownLeft.children.length >= 1) {
                                 moveDownLeft = false
-                                killChecker = false
+                                killDownLeftChecker = false
                             }
                             else {
                                 moveDownLeft = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownLeftChecker = true
+                                movedDownLeft = 2
                             }
                         }
                         else {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                     }
                     else {
                         moveDownLeft = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownLeftChecker = false
+                        movedDownLeft = 1
                     }
                 }
                 else {
@@ -1385,46 +1390,46 @@ class CheckerBoard extends Component {
                     if(adjacentUp.children.item(0).className === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "black_checker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else { 
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
 
@@ -1462,69 +1467,69 @@ class CheckerBoard extends Component {
                         if(adjacentUp.children.item(0).className === "red_checker") {
                             if(aaUp.children.length >= 1) {
                                 moveUp = false
-                                killChecker = false
+                                killUpChecker = false
                             }
                             else {
                                 moveUp = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpChecker = true
+                                movedUp = 2
                             }
                         }
                         else {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                     }
                     else {
                         moveUp = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpChecker = false
+                        movedUp = 1
                     }
 
                     if(diaUpRight.children.length >= 1) {
                         if(diaUpRight.children.item(0).className === "red_checker") {
                             if(aDiaUpRight.children.length >= 1) {
                                 moveUpRight = false
-                                killChecker = false
+                                killUpRightChecker = false
                             }
                             else {
                                 moveUpRight = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpRightChecker = true
+                                movedUpRight = 2
                             }
                         }
                         else {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                     }
                     else {
                         moveUpRight = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpRightChecker = false
+                        movedUpRight = 1
                     }
 
                     if(diaUpLeft.children.length >= 1) {
                         if(diaUpLeft.children.item(0).className === "red_checker") {
                             if(aDiaUpLeft.children.length >= 1) {
                                 moveUpLeft = false
-                                killChecker = false
+                                killUpLeftChecker = false
                             }
                             else {
                                 moveUpLeft = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killUpLeftChecker = true
+                                movedUpLeft = 2
                             }
                         }
                         else {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                     }
                     else {
                         moveUpLeft = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killUpLeftChecker = false
+                        movedUpLeft = 1
                     }
                 }
                 else {
@@ -1537,69 +1542,70 @@ class CheckerBoard extends Component {
                     if(adjacentDown.children.item(0).className === "red_checker") {
                         if(aaDown.children.length >= 1) {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                         else {
                             moveDown = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownChecker = true
+                            movedDown = 2
                         }
                     }
                     else {
                         moveDown = false
-                        killChecker = false
+                        killDownChecker = false
                     }
                 }
                 else {
                     moveDown = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownChecker = false
+                    movedDown = 1
                 }
 
                 if(diaDownRight.children.length >= 1) {
                     if(diaDownRight.children.item(0).className === "red_checker") {
+                        console.log(aDiaDownRight)
                         if(aDiaDownRight.children.length >= 1) {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownRight = 2
                         }
                     }
                     else {
                         moveDownRight = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownRight = 1
                 }
 
                 if(diaDownLeft.children.length >= 1) {
                     if(diaDownLeft.children.item(0).className === "red_checker") {
                         if(aDiaDownLeft.children.length >= 1) {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                         else {
                             moveDownLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killDownRightChecker = true
+                            movedDownLeft = 2
                         }
                     }
                     else {
                         moveDownLeft = false
-                        killChecker = false
+                        killDownRightChecker = false
                     }
                 }
                 else {
                     moveDownLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killDownRightChecker = false
+                    movedDownLeft = 1
                 }
             }
             else {
@@ -1608,69 +1614,69 @@ class CheckerBoard extends Component {
                         if(adjacentDown.children.item(0).className === "black_checker") {
                             if(aaDown.children.length >= 1) {
                                 moveDown = false
-                                killChecker = false
+                                killDownChecker = false
                             }
                             else {
                                 moveDown = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownChecker = true
+                                movedDown = 2
                             }
                         }
                         else {
                             moveDown = false
-                            killChecker = false
+                            killDownChecker = false
                         }
                     }
                     else {
                         moveDown = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownChecker = false
+                        movedDown = 1
                     }
 
                     if(diaDownRight.children.length >= 1) {
                         if(diaDownRight.children.item(0).className === "black_checker") {
                             if(aDiaDownRight.children.length > 1) {
                                 moveDownRight = false
-                                killChecker = false
+                                killDownRightChecker = false
                             }
                             else {
                                 moveDownRight = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownRightChecker = true
+                                movedDownRight = 2
                             }
                         }
                         else {
                             moveDownRight = false
-                            killChecker = false
+                            killDownRightChecker = false
                         }
                     }
                     else {
                         moveDownRight = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownRightChecker = false
+                        movedDownRight = 1
                     }
 
                     if(diaDownLeft.children.length >= 1) {
                         if(diaDownLeft.children.item(0).className === "black_checker") {
                             if(aDiaDownLeft.children.length >= 1) {
                                 moveDownLeft = false
-                                killChecker = false
+                                killDownLeftChecker = false
                             }
                             else {
                                 moveDownLeft = true
-                                killChecker = true
-                                spacesMoved = 2
+                                killDownLeftChecker = true
+                                movedDownLeft = 2
                             }
                         }
                         else {
                             moveDownLeft = false
-                            killChecker = false
+                            killDownLeftChecker = false
                         }
                     }
                     else {
                         moveDownLeft = true
-                        killChecker = false
-                        spacesMoved = 1
+                        killDownLeftChecker = false
+                        movedDownLeft = 1
                     }
                 }
                 else {
@@ -1679,73 +1685,75 @@ class CheckerBoard extends Component {
                     moveDownLeft = false
                 }
 
+                console.log(adjacentUp)
+
                 if(adjacentUp.children.length >= 1) {
                     if(adjacentUp.children.item(0).className === "black_checker") {
                         if(aaUp.children.length >= 1) {
                             moveUp = false
-                            killChecker = false
+                            killUpChecker = false
                         }
                         else {
                             moveUp = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpChecker = true
+                            movedUp = 2
                         }
                     }
                     else {
                         moveUp = false
-                        killChecker = false
+                        killUpChecker = false
                     }
                 }
                 else {
                     moveUp = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpChecker = false
+                    movedUp = 1
                 }
 
                 if(diaUpRight.children.length >= 1) {
                     if(diaUpRight.children.item(0).className === "black_checker") {
                         if(aDiaUpRight.children.length >= 1) {
                             moveUpRight = false
-                            killChecker = false
+                            killUpRightChecker = false
                         }
                         else {
                             moveUpRight = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpRightChecker = true
+                            movedUpRight = 2
                         }
                     }
                     else {
                         moveUpRight = false
-                        killChecker = false
+                        killUpRightChecker = false
                     }
                 }
                 else {
                     moveUpRight = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpRightChecker = false
+                    movedUpRight = 1
                 }
 
                 if(diaUpLeft.children.length >= 1) {
                     if(diaUpLeft.children.item(0).className === "black_checker") {
                         if(aDiaUpLeft.children.length >= 1) {
                             moveUpLeft = false
-                            killChecker = false
+                            killUpLeftChecker = false
                         }
                         else {
                             moveUpLeft = true
-                            killChecker = true
-                            spacesMoved = 2
+                            killUpLeftChecker = true
+                            movedUpLeft = 2
                         }
                     }
                     else {
                         moveUpLeft = false
-                        killChecker = false
+                        killUpLeftChecker = false
                     }
                 }
                 else {
                     moveUpLeft = true
-                    killChecker = false
-                    spacesMoved = 1
+                    killUpLeftChecker = false
+                    movedUpLeft = 1
                 }
             }
 
@@ -1772,17 +1780,193 @@ class CheckerBoard extends Component {
             let reducer = (total, current) => `${total} ` + `${current} `
             let promptMessage = possibleMoves.reduce(reducer, "You can move ")
 
+            let checkersCopy = this.state.checkers
+
+            let checkerState
+            checkerState = {
+                id: Number(checkerId),
+                className: checkerType,
+                status: "alive"
+            }
+
+            let checkerIndex = this.state.checkers.findIndex(checker => checker.id === Number(checkerId))
+            let willBeKing
+
+            let king = document.createElement("p")
+
+            let kingText = document.createTextNode("KING")
+
+            let preventChildClick = (e) => {
+                e.stopPropagation()
+            }
+
+            king.addEventListener("click", preventChildClick)
+
+            king.appendChild(kingText)
+
             let move = prompt(promptMessage, possibleMoves[0])
+
+            let currentChecker = document.getElementById(checkerId)
+
+            let enemyChecker
+            let enemyRemove
+
+            let deadChecker
+
+            let deadBlackPieces = document.getElementById("dead_black")
+            let deadRedPieces = document.getElementById("dead_red")
+
+            let listener = this.canCheckerMove
+
+            currentChecker.style.display = "none"
+            currentChecker.removeEventListener("click", listener, true)
+            currentChecker.parentNode.removeChild(currentChecker)
+
+            let newChecker = document.createElement("button")
+
+            newChecker.classList.add(checkerType)
+
+            newChecker.id = checkerId
+
+            newChecker.style.display = "flex"
+            
+            newChecker.addEventListener("click", this.canCheckerMove, true)
+
             if(possibleMoves.includes(move)) {
-                if(move === "up" && spacesMoved === 1) {
-                    let currentPlace = document.getElementById(checkerId)
-                    currentPlace.remove()
+                if(move === "up") {
+                    if(movedUp === 1) {
+                        if(isKing === "true") {
+                            willBeKing = true
+                        }
+                        else if(checkerType === "red_checker" && adjacentUp.id.includes("1") && isKing === "false") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                        }
+                        else {
+                            willBeKing = false
+                        }
+    
+                        checkerState.isKing = willBeKing
+                        checkerState.currentLocation = adjacentUp.id
+    
+                        newChecker.value = `${adjacentUp.id},${willBeKing},${checkerType},${checkerId}`
+    
+                        adjacentUp.appendChild(newChecker)
 
-                    let currentChecker = this.state.checkers.find(checker => checker.id === Number(checkerId))
-                    console.log(currentChecker)
+                        console.log(currentChecker)
+                    }
+                    else {
+                        if(isKing === "true") {
+                            willBeKing = true
+                        }
+                        else if (checkerType === "red_checker" && aaUp.id.includes("1") && isKing === "false") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                            king.value = `${adjacentDown.id},${willBeKing},${checkerType},${checkerId}`
+                        }
+                        else {
+                            willBeKing = false
+                        }
 
-                    let newChecker = document.createElement("button")
+                        checkerState.isKing = willBeKing
+                        checkerState.currentLocation = aaUp.id
+
+                        newChecker.value = `${aaUp.id},${willBeKing},${checkerType},${checkerId}`
+
+                        aaUp.appendChild(newChecker)
+
+                        enemyChecker = this.state.checkers.find(checker => checker.id === Number(adjacentUp.children.item(0).id))
+
+                        enemyRemove = document.getElementById(`${enemyChecker.id}`)
+
+                        enemyRemove.removeEventListener("click", listener, true)
+
+                        enemyRemove.remove()
+                    }
                 }
+                else if(move === "down") {
+                    console.log(movedDown)
+                    if(movedDown === 1) {
+                        console.log(checkerType)
+                        if(isKing === "true") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                        }
+                        else if(checkerType === "black_checker" && adjacentDown.id.includes("8") && isKing === "false") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                        }
+                        else {
+                            willBeKing = false
+                        }
+    
+                        checkerState.isKing = willBeKing
+                        checkerState.currentLocation = adjacentDown.id
+    
+                        newChecker.value = `${adjacentDown.id},${willBeKing},${checkerType},${checkerId}`
+    
+                        adjacentDown.appendChild(newChecker)
+                    }
+                    else {
+                        console.log("hit")
+                        if(isKing === "true") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                        }
+                        else if(checkerType === "black_checker" && aaDown.id.includes("8") && isKing === "false") {
+                            willBeKing = true
+                            newChecker.appendChild(king)
+                        }
+                        else {
+                            willBeKing = false
+                        }
+
+                        checkerState.isKing = willBeKing
+                        checkerState.currentLocation = aaDown.id
+
+                        newChecker.value = `${aaDown.id},${willBeKing},${checkerType},${checkerId}`
+
+                        aaDown.appendChild(newChecker)
+                        
+                        enemyChecker = this.state.checkers.find(checker => checker.id === Number(adjacentDown.children.item(0).id))
+
+                        enemyRemove = document.getElementById(`${enemyChecker.id}`)
+
+                        console.log(enemyRemove.canCheckerMove)
+
+                        enemyRemove.removeEventListener("click", listener, true)
+
+                        enemyRemove.remove()
+                    }
+                }
+                
+                checkersCopy[checkerIndex] = checkerState
+
+                if(killUpChecker === true || 
+                    killDownChecker === true || 
+                    killUpRightChecker === true || 
+                    killDownRightChecker === true || 
+                    killUpLeftChecker === true || 
+                    killDownLeftChecker === true) {
+                    checkersCopy.splice(enemyChecker, 1)
+
+                    deadChecker = document.createElement("div")
+
+                    if(checkerType === "black_checker") {
+                        deadChecker.classList.add("dead_red_checker")
+
+                        deadBlackPieces.appendChild(deadChecker)
+                    }
+                    else {
+                        deadChecker.classList.add("dead_black_checker")
+
+                        deadRedPieces.appendChild(deadChecker)
+                    }
+                }
+
+                this.setState({
+                    checkers: checkersCopy
+                })
             }
             else {
                 alert("Invalid move name")
@@ -1798,9 +1982,7 @@ class CheckerBoard extends Component {
     render() {
         return (
             <div className="checker_board">
-                <div className="dead_black_piece_container">
-                    <p>dead black pieces</p>
-                </div>
+                <div id="dead_black" className="dead_black_piece_container"></div>
                 <div className="board_container">
                     <div className="a_column checker_board_column_black">
                         <div className="space" id="a_1"></div>
@@ -1883,9 +2065,7 @@ class CheckerBoard extends Component {
                         <div className="space" id="h_8"></div>
                     </div>
                 </div>
-                <div className="dead_red_piece_container">
-                    <p>dead red pieces</p>
-                </div>
+                <div id="dead_red" className="dead_red_piece_container"></div>
             </div>
         )
     }
