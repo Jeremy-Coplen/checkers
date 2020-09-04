@@ -1,13 +1,4 @@
-@import "./Styles/mixins.scss";
-@import "./Styles/variables.scss";
-
 .app {
     height: 100vh;
     width: 100vw;
-}
-
-.game_container {
-    @include flex(row, center);
-    height: 100%;
-    width: 100%;
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 
-import CheckerBoard from "./Componenets/CheckerBoard/CheckerBoard"
+import Game from "./Componenets/Game/Game"
 import "./App.scss"
 
 function App() {
   return (
     <div className="app">
-      <div className="game_container">
-        <CheckerBoard />
-      </div>
+      <Game />
     </div>
   );
 }
