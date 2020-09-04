@@ -1,0 +1,6 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+.space {
+    @include flex(row, center, center)
+}

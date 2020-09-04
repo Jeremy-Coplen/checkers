@@ -1,0 +1,37 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+.board {
+    @include flex(row, center);
+    @include border();
+    height: 60%;
+    width: 40%;
+}
+
+.white_start, .tan_start {
+    height: 95%;
+    width: 11.5%;
+    div {
+        @include border();
+        height: 12%;
+        width: 100%;
+    }
+}
+
+.white_start {
+    :nth-child(odd) {
+        background-color: $white;
+    }
+    :nth-child(even) {
+        background-color: $tan;
+    }
+}
+
+.tan_start {
+    :nth-child(odd) {
+        background-color: $tan;
+    }
+    :nth-child(even) {
+        background-color: $white;
+    }
+}

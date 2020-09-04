@@ -1,0 +1,25 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+.black_checker, .red_checker {
+    @include flex(row, center, center);
+    border: 1px solid $white !important;
+    height: 60px !important;
+    width: 60px !important;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.black_checker, .black_checker p {
+    background-color: $black !important;
+    
+}
+
+.black_checker p, .red_checker p {
+    color: $white;
+    font-size: 10px;
+}
+
+.red_checker, .red_checker p {
+    background-color: $red !important;
+}

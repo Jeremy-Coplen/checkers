@@ -6,3 +6,9 @@
     height: 100%;
     width: 100%;
 }
+
+.dead_pieces_container {
+    @include border();
+    height: 60%;
+    width: 15%;
+}
