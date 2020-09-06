@@ -1,5 +1,7 @@
 import React from "react"
 
+import blackCrown from "../../Images/blackCrown.jpg"
+import redCrown from "../../Images/redCrown.png"
 import "./Checker.scss"
 
 const Checker = (props) => {
@@ -9,7 +11,12 @@ const Checker = (props) => {
             {
                 props.checker.isKing
                 ?
-                    <p>King</p>
+                    
+                    className === "black_checker"
+                    ?
+                        <img src={blackCrown} alt=""/>
+                    :
+                        <img src={redCrown} alt=""/>
                 :
                     null
             }

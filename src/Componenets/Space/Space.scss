@@ -2,5 +2,8 @@
 @import "../../Styles/variables.scss";
 
 .space {
-    @include flex(row, center, center)
+    @include flex(row, center, center);
+    &:hover {
+        cursor: pointer;
+    }
 }

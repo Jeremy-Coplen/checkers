@@ -29,12 +29,30 @@ class Game extends Component {
         }
     }
 
+    updateSpaces = (spaces, checker) => {
+        let deadBlackCheckers = this.state.deadBlackCheckers
+        let deadRedCheckers = this.state.deadRedCheckers
+
+        if(checker) {
+            if(checker.className === "black_checker") {
+                deadBlackCheckers.push(checker)
+            }
+            else {
+                deadRedCheckers.push(checker)
+            }
+        }
+        this.setState({
+            spaces,
+            deadBlackCheckers,
+            deadRedCheckers
+        })
+    }
+
     render() {
-        console.log(this.state)
         return (
             <div className="game">
                 <div className="dead_pieces_container"></div>
-                <Board spaces={this.state.spaces} />
+                <Board spaces={this.state.spaces} updateSpaces={this.updateSpaces} />
                 <div className="dead_pieces_container"></div>
             </div>
         )
