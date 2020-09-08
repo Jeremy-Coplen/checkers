@@ -8,7 +8,14 @@
 }
 
 .dead_pieces_container {
+    @include flex(row, flex-start, flex-start);
     @include border();
+    flex-wrap: wrap;
+    background-color: $tan;
     height: 60%;
     width: 15%;
+    padding: 10px;
+    div {
+        margin-right: 10px;
+    }
 }

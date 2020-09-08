@@ -15,7 +15,6 @@ class Board extends Component {
     }
 
     moveChecker = (location, hasChecker, color, isKing) => {
-        console.log(location, hasChecker, color, isKing)
         if(this.state.clicked === false) {
             if(hasChecker.id) {
                 let locationOne
@@ -94,7 +93,7 @@ class Board extends Component {
                                     deadChecker = spaces[upRight].hasChecker
                                     spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
                                     spaces[this.state.locationOne].hasChecker = {}
-                                    this.props.updateSpaces(spaces, deadChecker)
+                                    this.props.updateSpaces(spaces, deadChecker, upRight)
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red"
@@ -109,56 +108,54 @@ class Board extends Component {
                             }
                         }
                     }
-                    else {
-                        if(downRight === location) {
-                            if(hasChecker.id) {
-                                alert("Invalid move")
-                                this.setState({
-                                    clicked: false
-                                })
-                            }
-                            else {
-                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
-                                spaces[this.state.locationOne].hasChecker = {}
-                                this.props.updateSpaces(spaces)
-                                this.setState({
-                                    clicked: false,
-                                    playerTurn: "red"
-                                })
-                            }
-                        }
-                        else if(twoDownRight === location) {
-                            if(hasChecker.id) {
-                                alert("Invalid move")
-                                this.setState({
-                                    clicked: false
-                                })
-                            }
-                            else {
-                                if(spaces[upRight].hasChecker.className === "red_checker") {
-                                    deadChecker = spaces[upRight].hasChecker
-                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
-                                    spaces[this.state.locationOne].hasChecker = {}
-                                    this.props.updateSpaces(spaces, deadChecker)
-                                    this.setState({
-                                        clicked: false,
-                                        playerTurn: "red"
-                                    })
-                                }
-                                else {
-                                    alert("Invalid move")
-                                    this.setState({
-                                        clicked: false
-                                    })
-                                }
-                            }
-                        }
-                        else {
+                    if(downRight === location) {
+                        if(hasChecker.id) {
                             alert("Invalid move")
                             this.setState({
                                 clicked: false
                             })
                         }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(twoDownRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[downRight].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, downRight)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                    else {
+                        alert("Invalid move")
+                        this.setState({
+                            clicked: false
+                        })
                     }
                 }
                 else if(this.state.locationOne >= 56) {
@@ -192,7 +189,7 @@ class Board extends Component {
                                     deadChecker = spaces[upLeft].hasChecker
                                     spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
                                     spaces[this.state.locationOne].hasChecker = {}
-                                    this.props.updateSpaces(spaces, deadChecker)
+                                    this.props.updateSpaces(spaces, deadChecker, upLeft)
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red"
@@ -207,8 +204,76 @@ class Board extends Component {
                             }
                         }
                     }
+                    if(downLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(twoDownLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[downLeft].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
                     else {
-                        if(downLeft === location) {
+                        alert("Invalid move")
+                        this.setState({
+                            clicked: false
+                        })
+                    }
+                }
+                else {
+                    if(isKing) {
+                        if(upRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.hasChecker] = {}
+                                this.props.updateSpaces(spaces)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red"
+                                })  
+                            }
+                        }
+                        else if(upLeft === location) {
                             if(hasChecker.id) {
                                 alert("Invalid move")
                                 this.setState({
@@ -225,6 +290,264 @@ class Board extends Component {
                                 })
                             }
                         }
+                        else if(twoUpRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                if(spaces[upRight].hasChecker.className === "red_checker") {
+                                    deadChecker = spaces[upRight].hasChecker
+                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                    spaces[this.state.locationOne].hasChecker = {}
+                                    this.props.updateSpaces(spaces, deadChecker, upRight)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
+                                }
+                            }
+                        }
+                        else if(twoUpLeft === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                if(spaces[upLeft].hasChecker.className === "red_checker") {
+                                    deadChecker = spaces[upLeft].hasChecker
+                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                    spaces[this.state.locationOne].hasChecker = {}
+                                    this.props.updateSpaces(spaces, deadChecker, upLeft)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    if(downRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(downLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(twoDownRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[downRight].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, downRight)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                            else {
+                                    alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                    else if(twoDownLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[downLeft].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                    else {
+                        alert("Invalid move")
+                        this.setState({
+                            clicked: false
+                        })
+                    }
+                }
+            }
+            else {
+                if(this.state.locationOne <= 7) {
+                    if(isKing) {
+                        if(downRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else if(twoDownRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                            else {
+                                if(spaces[downRight].hasChecker.className === "black_checker") {
+                                    deadChecker = spaces[downRight].hasChecker
+                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                    spaces[this.state.locationOne].hasChecker = {}
+                                    this.props.updateSpaces(spaces, deadChecker, downRight)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "black"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    if(upRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(twoUpRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[upRight].hasChecker.className === "black_checker") {
+                                deadChecker = spaces[upRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, upRight)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                }
+                else if(this.state.locationOne >= 56) {
+                    if(isKing) {
+                        if(downLeft === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
                         else if(twoDownLeft === location) {
                             if(hasChecker.id) {
                                 alert("Invalid move")
@@ -233,24 +556,250 @@ class Board extends Component {
                                 })
                             }
                             else {
-                                if(spaces[downLeft].hasChecker.className === "red_checker") {
+                                if(spaces[downLeft].hasChecker.className === "black_checker") {
                                     deadChecker = spaces[downLeft].hasChecker
                                     spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
                                     spaces[this.state.locationOne].hasChecker = {}
-                                    this.props.updateSpaces(spaces, deadChecker)
+                                    this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "black"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
                                 }
                             }
                         }
-                        else {
+                    }
+                    if(upLeft === location) {
+                        if(hasChecker.id) {
                             alert("Invalid move")
                             this.setState({
                                 clicked: false
                             })
                         }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(twoUpLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[upLeft].hasChecker.className === "black_checker") {
+                                deadChecker = spaces[upLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, upLeft)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
                     }
                 }
                 else {
-
+                    if(isKing) {
+                        if(downRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else if(downLeft === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else if(twoDownRight === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                if(spaces[downRight].hasChecker.className === "black_checker") {
+                                    deadChecker = spaces[downRight].hasChecker
+                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                    spaces[this.state.locationOne].hasChecker = {}
+                                    this.props.updateSpaces(spaces, deadChecker, downRight)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "black"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
+                                }
+                            }
+                        }
+                        else if(twoDownLeft === location) {
+                            if(hasChecker.id) {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                            else {
+                                if(spaces[downLeft].hasChecker.className === "black_checker") {
+                                    deadChecker = spaces[downLeft].hasChecker
+                                    spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                    spaces[this.state.locationOne].hasChecker = {}
+                                    this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "black"
+                                    })
+                                }
+                                else {
+                                    alert("Invalid move")
+                                    this.setState({
+                                        clicked: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    if(upRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(upLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                            spaces[this.state.locationOne].hasChecker = {}
+                            this.props.updateSpaces(spaces)
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(twoUpRight === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[upRight].hasChecker.className === "black_checker") {
+                                deadChecker = spaces[upRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, upRight)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                    else if(twoUpLeft === location) {
+                        if(hasChecker.id) {
+                            alert("Invalid move")
+                            this.setState({
+                                clicked: false
+                            })
+                        }
+                        else {
+                            if(spaces[upLeft].hasChecker.className === "black_checker") {
+                                deadChecker = spaces[upLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.locationOne].hasChecker
+                                spaces[this.state.locationOne].hasChecker = {}
+                                this.props.updateSpaces(spaces, deadChecker, upLeft)
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                            else {
+                                alert("Invalid move")
+                                this.setState({
+                                    clicked: false
+                                })
+                            }
+                        }
+                    }
+                    else {
+                        alert("Invalid move")
+                        this.setState({
+                            clicked: false
+                        })
+                    }
                 }
             }
         }

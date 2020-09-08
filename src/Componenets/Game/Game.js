@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 
 import Board from "../Board/Board"
+import Checker from "../Checker/Checker"
 import "./Game.scss"
 
 class Game extends Component {
@@ -29,7 +30,7 @@ class Game extends Component {
         }
     }
 
-    updateSpaces = (spaces, checker) => {
+    updateSpaces = (spaces, checker, index) => {
         let deadBlackCheckers = this.state.deadBlackCheckers
         let deadRedCheckers = this.state.deadRedCheckers
 
@@ -41,6 +42,11 @@ class Game extends Component {
                 deadRedCheckers.push(checker)
             }
         }
+
+        if(index) {
+            spaces[index].hasChecker = {}
+        }
+
         this.setState({
             spaces,
             deadBlackCheckers,
@@ -49,11 +55,25 @@ class Game extends Component {
     }
 
     render() {
+        let deadBlackCheckers = this.state.deadBlackCheckers.map((checker, i) => {
+            return (
+                <Checker key={i} checker={checker} />
+            )
+        })
+        let deadRedCheckers = this.state.deadRedCheckers.map((checker, i) => {
+            return (
+                <Checker key={i} checker={checker} />
+            )
+        })
         return (
             <div className="game">
-                <div className="dead_pieces_container"></div>
+                <div className="dead_pieces_container">
+                    {deadBlackCheckers}
+                </div>
                 <Board spaces={this.state.spaces} updateSpaces={this.updateSpaces} />
-                <div className="dead_pieces_container"></div>
+                <div className="dead_pieces_container">
+                    {deadRedCheckers}
+                </div>
             </div>
         )
     }
