@@ -7,7 +7,7 @@ const Space = (props) => {
     const id = props.space.id
     return (
         <div className={`space ${id}`}
-        onClick={() => props.moveChecker(props.location, props.space.hasChecker, props.space.hasChecker.className || "", props.space.hasChecker.isKing || false)} >
+        onClick={() => props.moveChecker(props.location, props.space.hasChecker, props.space.hasChecker.className || "")} >
             {
                 props.space.hasChecker.id
                 ?
