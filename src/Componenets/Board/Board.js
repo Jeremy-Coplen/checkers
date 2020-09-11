@@ -115,7 +115,7 @@ class Board extends Component {
                         if(hasChecker.id) {
                             await alert("Invalid move")
 
-                            if(window.confirm("Are you sure you want to go again")) {
+                            if(window.confirm("Are you sure you want to go again?")) {
                                 return
                             }
                             else {
@@ -160,7 +160,7 @@ class Board extends Component {
                             else {
                                 await alert("Invalid move")
 
-                                if(window.confirm("Are you sure you want to go again")) {
+                                if(window.confirm("Are you sure you want to go again?")) {
                                  return
                                 }
                                 else {
@@ -171,6 +171,346 @@ class Board extends Component {
                                     })
                                 }
                             }
+                        }
+                    }
+                    else if(twoUpLeft === location) {
+                        if(hasChecker.id) {
+                            await alert("Invalid move")
+
+                            if(window.confirm("Are you sure you want to go again?")) {
+                                return
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red",
+                                    goAgain: false
+                                })
+                            }
+                        }
+                        else {
+                            if(spaces[upLeft].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[upLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
+                                spaces[this.state.goAgainSpace].hasChecker = {}
+                                crownKing()
+                                this.props.updateSpaces(spaces, deadChecker, upLeft)
+                                if(spaces[location + 7].hasChecker.className === "red_checker" && 
+                                !spaces[location + 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location + 9].hasChecker.className === "red_checker" && 
+                                !spaces[location + 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 9].hasChecker.className === "red_checker" && 
+                                !spaces[location - 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 7].hasChecker.className === "red_checker" && 
+                                spaces[location - 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                            else {
+                                await alert("Invalid move")
+
+                                if(window.confirm("Are you sure you want to go again?")) {
+                                    return
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    else if(twoDownRight === location) {
+                        if(hasChecker.id) {
+                            await alert("Invalid move")
+
+                            if(window.confirm("Are you sure you want to go again?")) {
+                                return
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red",
+                                    goAgain: false
+                                })
+                            }
+                        }
+                        else {
+                            if(spaces[downRight].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
+                                spaces[this.state.goAgainSpace].hasChecker = {}
+                                crownKing()
+                                this.props.updateSpaces(spaces, deadChecker, downRight)
+                                if(spaces[location + 7].hasChecker.className === "red_checker" && 
+                                !spaces[location + 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location + 9].hasChecker.className === "red_checker" && 
+                                !spaces[location + 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 9].hasChecker.className === "red_checker" && 
+                                !spaces[location - 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 7].hasChecker.className === "red_checker" && 
+                                spaces[location - 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                            else {
+                                await alert("Invalid move")
+
+                                if(window.confirm("Are you sure you want to go again?")) {
+                                    return
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    else if(twoDownLeft === location) {
+                        if(hasChecker.id) {
+                            await alert("Invalid move")
+
+                            if(window.confirm("Are you sure you want to go again?")) {
+                                return
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red",
+                                    goAgain: false
+                                })
+                            }
+                        }
+                        else {
+                            if(spaces[downLeft].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
+                                spaces[this.state.goAgainSpace].hasChecker = {}
+                                crownKing()
+                                this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                if(spaces[location + 7].hasChecker.className === "red_checker" && 
+                                !spaces[location + 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location + 9].hasChecker.className === "red_checker" && 
+                                !spaces[location + 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 9].hasChecker.className === "red_checker" && 
+                                !spaces[location - 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 7].hasChecker.className === "red_checker" && 
+                                spaces[location - 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                            else {
+                                await alert("Invalid move")
+
+                                if(window.confirm("Are you sure you want to go again?")) {
+                                    return
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        await alert("Invalid move")
+
+                        if(window.confirm("Are you sure you want to go again")) {
+                            return
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red",
+                                goAgain: false
+                            })
+                        }
+                    }
+                }
+                else {
+                    if(twoDownRight === location) {
+                        if(hasChecker.id) {
+                            await alert("Invalid move")
+
+                            if(window.confirm("Are you sure you want to go again?")) {
+                                return
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red",
+                                    goAgain: false
+                                })
+                            }
+                        }
+                        else {
+                            if(spaces[downRight].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downRight].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
+                                spaces[this.state.goAgainSpace].hasChecker = {}
+                                crownKing()
+                                this.props.updateSpaces(spaces, deadChecker, downRight)
+                                if(spaces[location + 7].hasChecker.className === "red_checker" && 
+                                !spaces[location + 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location + 9].hasChecker.className === "red_checker" && 
+                                !spaces[location + 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 9].hasChecker.className === "red_checker" && 
+                                !spaces[location - 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 7].hasChecker.className === "red_checker" && 
+                                spaces[location - 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                            else {
+                                await alert("Invalid move")
+
+                                if(window.confirm("Are you sure you want to go again?")) {
+                                    return
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    else if(twoDownLeft === location) {
+                        if(hasChecker.id) {
+                            await alert("Invalid move")
+
+                            if(window.confirm("Are you sure you want to go again?")) {
+                                return
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    playerTurn: "red",
+                                    goAgain: false
+                                })
+                            }
+                        }
+                        else {
+                            if(spaces[downLeft].hasChecker.className === "red_checker") {
+                                deadChecker = spaces[downLeft].hasChecker
+                                spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
+                                spaces[this.state.goAgainSpace].hasChecker = {}
+                                crownKing()
+                                this.props.updateSpaces(spaces, deadChecker, downLeft)
+                                if(spaces[location + 7].hasChecker.className === "red_checker" && 
+                                !spaces[location + 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location + 9].hasChecker.className === "red_checker" && 
+                                !spaces[location + 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 9].hasChecker.className === "red_checker" && 
+                                !spaces[location - 18].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else if(spaces[location - 7].hasChecker.className === "red_checker" && 
+                                spaces[location - 14].hasChecker.id) {
+                                    goAgain()
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                            else {
+                                await alert("Invalid move")
+
+                                if(window.confirm("Are you sure you want to go again?")) {
+                                    return
+                                }
+                                else {
+                                    this.setState({
+                                        clicked: false,
+                                        playerTurn: "red",
+                                        goAgain: false
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        await alert("Invalid move")
+
+                        if(window.confirm("Are you sure you want to go again?")) {
+                            return
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                playerTurn: "red",
+                                goAgain: false
+                            })
                         }
                     }
                 }
