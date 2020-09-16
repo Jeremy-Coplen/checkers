@@ -178,7 +178,6 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -210,7 +209,6 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -434,7 +432,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -466,7 +464,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -690,7 +688,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -722,7 +720,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -881,7 +879,6 @@ class Board extends Component {
                     }
                     else if(twoDownLeft === location) {
                         if(hasChecker.id) {
-                            console.log("302")
                             await alert("Invalid move")
 
                             if(window.confirm("Are you sure you want to go again?")) {
@@ -947,7 +944,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -979,7 +976,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -1121,7 +1118,6 @@ class Board extends Component {
                                 }
                             }
                             else {
-                                console.log("348")
                                 await alert("Invalid move")
 
                                 if(window.confirm("Are you sure you want to go again?")) {
@@ -1220,7 +1216,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -1252,7 +1248,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -1476,7 +1472,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -1508,7 +1504,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -1800,7 +1796,6 @@ class Board extends Component {
                                     }
                                 }
                                 else {
-                                    console.log("hit")
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red",
@@ -1832,7 +1827,7 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -2031,7 +2026,6 @@ class Board extends Component {
                                     }
                                 }
                                 else {
-                                    console.log("hit")
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red",
@@ -2063,7 +2057,7 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -2264,7 +2258,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -2296,7 +2290,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -2465,7 +2459,6 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else if(spaces[location + 9] && spaces[location + 18]) {
-                                        console.log("hit")
                                         if(spaces[location + 9].hasChecker.className === "red_checker" && 
                                         !spaces[location + 18].hasChecker.id) {
                                             goAgain()
@@ -2481,7 +2474,7 @@ class Board extends Component {
                                     else if(spaces[location - 9] && spaces[location - 18]) {
                                         if(spaces[location - 9].hasChecker.className === "red_checker" && 
                                         !spaces[location - 18].hasChecker.id) {
-                                            console.log("hit")
+    
                                             goAgain()
                                         }
                                         else {
@@ -2506,7 +2499,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -2538,7 +2531,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -2744,7 +2737,6 @@ class Board extends Component {
                                     }
                                 }
                                 else {
-                                    console.log("hit")
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red",
@@ -2776,7 +2768,7 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -2995,7 +2987,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -3027,7 +3019,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -3235,7 +3227,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -3267,7 +3259,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -3481,7 +3473,6 @@ class Board extends Component {
                                     }
                                 }
                                 else {
-                                    console.log("hit")
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red",
@@ -3513,7 +3504,7 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -3712,7 +3703,6 @@ class Board extends Component {
                                     }
                                 }
                                 else {
-                                    console.log("hit")
                                     this.setState({
                                         clicked: false,
                                         playerTurn: "red",
@@ -3744,7 +3734,6 @@ class Board extends Component {
                                         goAgain()
                                     }
                                     else {
-                                        console.log("hit")
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -3900,8 +3889,6 @@ class Board extends Component {
                                 spaces[this.state.locationOne].hasChecker = {}
                                 crownKing()
                                 this.props.updateSpaces(spaces, deadChecker, downRight)
-                                console.log(spaces[location + 9].hasChecker.className)
-                                console.log(spaces[location + 18].hasChecker.id)
                                 if(spaces[location + 7] && spaces[location + 14]) {
                                     if(spaces[location + 7].hasChecker.className === "red_checker" && 
                                     !spaces[location + 14].hasChecker.id) {
@@ -3947,7 +3934,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -3979,7 +3966,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",
@@ -4187,7 +4174,7 @@ class Board extends Component {
                                         }
                                     }
                                     else {
-                                        console.log("hit")
+
                                         this.setState({
                                             clicked: false,
                                             playerTurn: "red",
@@ -4219,7 +4206,7 @@ class Board extends Component {
                                             goAgain()
                                         }
                                         else {
-                                            console.log("hit")
+    
                                             this.setState({
                                                 clicked: false,
                                                 playerTurn: "red",

@@ -25,7 +25,6 @@ class Game extends Component {
             })
         }
         catch(err) {
-            console.log(err)
             alert("Error getting Spaces")
         }
     }
