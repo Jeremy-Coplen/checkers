@@ -30,7 +30,7 @@ class Game extends Component {
         }
     }
 
-    updateSpaces = (spaces, checker, index) => {
+    updateSpaces = async (spaces, checker, index) => {
         let deadBlackCheckers = this.state.deadBlackCheckers
         let deadRedCheckers = this.state.deadRedCheckers
 
