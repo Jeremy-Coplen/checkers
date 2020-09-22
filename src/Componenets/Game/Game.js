@@ -53,6 +53,34 @@ class Game extends Component {
         })
     }
 
+    checkDead = async () => {
+        let spacesRes
+        if(this.state.deadBlackCheckers.length === 12 || this.state.deadRedCheckers.length === 12) {
+            if(this.state.deadBlackCheckers.length === 12) {
+                await alert("Congratulations red checkers wins!!!")
+
+                spacesRes = await axios.get("/api/get/spaces")
+
+                this.setState({
+                    spaces: spacesRes.data,
+                    deadBlackCheckers: [],
+                    deadRedCheckers: []
+                })
+            }
+            else {
+                await alert("Congratulations black checkers wins!!!")
+
+                spacesRes = await axios.get("/api/get/spaces")
+
+                this.setState({
+                    spaces: spacesRes.data,
+                    deadBlackCheckers: [],
+                    deadRedCheckers: []
+                })
+            }
+        }
+    }
+
     render() {
         let deadBlackCheckers = this.state.deadBlackCheckers.map((checker, i) => {
             return (
@@ -69,7 +97,7 @@ class Game extends Component {
                 <div className="dead_pieces_container">
                     {deadBlackCheckers}
                 </div>
-                <Board spaces={this.state.spaces} updateSpaces={this.updateSpaces} />
+                <Board spaces={this.state.spaces} updateSpaces={this.updateSpaces} checkDead={this.checkDead} />
                 <div className="dead_pieces_container">
                     {deadRedCheckers}
                 </div>
