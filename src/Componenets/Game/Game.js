@@ -54,29 +54,16 @@ class Game extends Component {
     }
 
     checkDead = async () => {
-        let spacesRes
         if(this.state.deadBlackCheckers.length === 12 || this.state.deadRedCheckers.length === 12) {
             if(this.state.deadBlackCheckers.length === 12) {
                 await alert("Congratulations red checkers wins!!!")
 
-                spacesRes = await axios.get("/api/get/spaces")
-
-                this.setState({
-                    spaces: spacesRes.data,
-                    deadBlackCheckers: [],
-                    deadRedCheckers: []
-                })
+                window.location.reload()
             }
             else {
                 await alert("Congratulations black checkers wins!!!")
 
-                spacesRes = await axios.get("/api/get/spaces")
-
-                this.setState({
-                    spaces: spacesRes.data,
-                    deadBlackCheckers: [],
-                    deadRedCheckers: []
-                })
+                window.location.reload()
             }
         }
     }

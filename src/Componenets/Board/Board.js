@@ -110,34 +110,316 @@ class Board extends Component {
             }
 
             let checkSpaces = () => {
+                let left = [8, 10, 12]
+                let top = [1, 17, 33]
+                let right = [51, 53, 55]
+                let bottom = [30, 46, 62]
                 if(this.state.playerTurn === "black") {
-                    if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
-                    (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id) || 
-                    (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
-                    (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
-                        goAgain()
+                    if(location === 14) {
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(location === 49) {
+                        if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(left.includes(location)) {
+                        if(spaces[this.state.goAgainSpace.hasChecker.isKing]) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                    }
+                    else if(top.includes(location)) {
+                        if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id) || 
+                        (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(right.includes(location)) {
+                        if(spaces[this.state.goAgainSpace.hasChecker.isKing]) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                    }
+                    else if(bottom.includes(location)) {
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
                     }
                     else {
-                        this.setState({
-                            clicked: false,
-                            goAgain: false,
-                            playerTurn: "red"
-                        })
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_cecker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
                     }
                 }
                 else {
-                    if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
-                    (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id) || 
-                    (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
-                    (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
-                        goAgain()
+                    if(location === 14) {
+                        if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(location === 49) {
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(left.includes(location)) {
+                        if(spaces[this.state.goAgainSpace.hasChecker.isKing]) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                    }
+                    else if(top.includes(location)) {
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(right.includes(location)) {
+                        if(spaces[this.state.goAgainSpace.hasChecker.isKing]) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                    }
+                    else if(bottom.includes(location)) {
+                        if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
+                        (spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
                     }
                     else {
-                        this.setState({
-                            clicked: false,
-                            goAgain: false,
-                            playerTurn: "black"
-                        })
+                        if(spaces[this.state.goAgainSpace].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
                     }
                 }
             }
@@ -247,7 +529,7 @@ class Board extends Component {
                         }
                         else {
                             if(spaces[downRight].hasChecker.className === "red_checker") {
-                                deadChecker = spaces[downRight].hasChecker
+                                deadChecker = spaces[downRight].r
                                 spaces[location].hasChecker = spaces[this.state.goAgainSpace].hasChecker
                                 spaces[this.state.goAgainSpace].hasChecker = {}
                                 crownKing()
@@ -721,38 +1003,316 @@ class Board extends Component {
             }
 
             let checkSpaces = () => {
+                let left = [8, 10, 12]
+                let top = [1, 17, 33]
+                let right = [51, 53, 55]
+                let bottom = [30, 46, 62]
                 if(this.state.playerTurn === "black") {
-                    if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
-                    (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id) || 
-                    (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
-                    (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
-                        goAgain()
+                    if(location === 14) {
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(location === 49) {
+                        if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(left.includes(location)) {
+                        if(spaces[this.state.locationOne.hasChecker.isKing]) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                    }
+                    else if(top.includes(location)) {
+                        if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id) || 
+                        (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
+                    }
+                    else if(right.includes(location)) {
+                        if(spaces[this.state.locationOne.hasChecker.isKing]) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                    }
+                    else if(bottom.includes(location)) {
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "red"
+                            })
+                        }
                     }
                     else {
-                        this.setState({
-                            clicked: false,
-                            goAgain: false,
-                            playerTurn: "red"
-                        })
-
-                        return
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "red_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_checker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "red_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "red_cecker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "red_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "red"
+                                })
+                            }
+                        }
                     }
                 }
                 else {
-                    if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
-                    (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id) || 
-                    (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
-                    (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
-                        goAgain()
+                    if(location === 14) {
+                        if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(location === 49) {
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(left.includes(location)) {
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                    }
+                    else if(top.includes(location)) {
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
+                    }
+                    else if(right.includes(location)) {
+                        if(spaces[this.state.locationOne.hasChecker.isKing]) {
+                            if((spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                    }
+                    else if(bottom.includes(location)) {
+                        if((spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
+                        (spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id)) {
+                            goAgain()
+                        }
+                        else {
+                            this.setState({
+                                clicked: false,
+                                goAgain: false,
+                                playerTurn: "black"
+                            })
+                        }
                     }
                     else {
-                        this.setState({
-                            clicked: false,
-                            goAgain: false,
-                            playerTurn: "black"
-                        })
-
-                        return
+                        if(spaces[this.state.locationOne].hasChecker.isKing) {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location + 9] && spaces[location + 18] && spaces[location + 9].hasChecker.className === "black_checker" && !spaces[location + 18].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id) || 
+                            (spaces[location - 7] && spaces[location - 14] && spaces[location - 7].hasChecker.className === "black_checker" && !spaces[location - 14].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
+                        else {
+                            if((spaces[location + 7] && spaces[location + 14] && spaces[location + 7].hasChecker.className === "black_checker" && !spaces[location + 14].hasChecker.id) || 
+                            (spaces[location - 9] && spaces[location - 18] && spaces[location - 9].hasChecker.className === "black_checker" && !spaces[location - 18].hasChecker.id)) {
+                                goAgain()
+                            }
+                            else {
+                                this.setState({
+                                    clicked: false,
+                                    goAgain: false,
+                                    playerTurn: "black"
+                                })
+                            }
+                        }
                     }
                 }
             }
