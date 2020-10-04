@@ -7,6 +7,7 @@ const { SERVER_PORT } = process.env
 
 const port = SERVER_PORT || 3005
 
+app.use(express.static(`${__dirname}/../build`))
 app.use(express.json())
 
 let space = require("./spacesController")
